@@ -21,9 +21,12 @@ app.use(cors())
 //init connection to db
 connectToDb();
 
-const userRoutes = require("./routes/userRoutes.js")
+const userRoutes = require("./routes/userRoutes.js");
+// const { createUser } = require("./userControllers/userController.js");
+
 
 app.get("/", userRoutes);
+app.post("/create" , createUser)
 
 //export default app;
 module.exports = app
