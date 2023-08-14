@@ -8,7 +8,7 @@ const connectToDb = require("./config/db.js")
 
 const cors = require("cors")
 
-// const userContr = require("./userControllers/userController.js")
+// const userContr = require("./userControllers/userController.js")  for making direct connection from controller to app.js
 
 const app = express();
 
@@ -25,8 +25,8 @@ const userRoutes = require("./routes/userRoutes.js");
 // const { createUser } = require("./userControllers/userController.js");
 
 
-app.get("/", userRoutes);
-app.post("/create" , createUser)
+app.use("/", userRoutes);  //app.use for all requests get and post by middleware
+// app.post("/createUser" , userContr.createUser)
 
 //export default app;
 module.exports = app
