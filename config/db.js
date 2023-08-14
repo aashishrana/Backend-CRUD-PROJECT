@@ -8,3 +8,5 @@ const connectToDb = async () => {
         console.log(`connected to DB : ${conn.connection.host}`)
     })
 }
+
+module.exports = connectToDb;
