@@ -26,4 +26,4 @@ const userRoutes = require("./routes/userRoutes.js")
 app.get("/", userRoutes);
 
 //export default app;
-module.exports = app;
+module.exports = app
