@@ -8,6 +8,8 @@ const connectToDb = require("./config/db.js")
 
 const cors = require("cors")
 
+// const userContr = require("./userControllers/userController.js")
+
 const app = express();
 
 // Express middleware execute before the request
@@ -19,10 +21,9 @@ app.use(cors())
 //init connection to db
 connectToDb();
 
+const userRoutes = require("./routes/userRoutes.js")
 
-app.get("/", (req, res) => {
-    res.send("<h1>Jai shree Ram</h1>")
-})
+app.get("/", userRoutes);
 
 //export default app;
 module.exports = app;
