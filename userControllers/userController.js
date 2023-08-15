@@ -40,7 +40,7 @@ exports.createUser = async(req , res) => {
 }
 
 
-exports.getUsers = async (req, res) => {
+exports.getUsers = async (req, res) => {   // recive user successfully 
     try {
 
         const users = await User.find({})
@@ -51,6 +51,38 @@ exports.getUsers = async (req, res) => {
             users
         })
     } catch(error) {
+        console.log(error);
+        res.status(400).json ({
+            success: false,
+            message : error.message
+        })
+    }
+}
+
+
+exports.editUser = async (req , res) => {
+    try {
+
+    } catch(error) {
+        console.log(error)
+        res.status(400).json({
+            success : false,
+            message : error.message,
+        })
+
+    }
+}
+
+exports.deleteUsers = async (req , res) => {
+    try {
+        const userId = req.params.id  // you can take data into 2 ways by url and by body , post api also
+        const user = await User.findByIdAndDelete(userId)
+        res.status(200).json({
+            success : true,
+            message : "User deleted successfully"
+        })
+
+    } catch (error) {
         console.log(error);
         res.status(400).json ({
             success: false,
